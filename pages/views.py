@@ -27,7 +27,7 @@ def get_home_context(form=None):
     profile = Profile.objects.first()
     hero = Hero.objects.first()
     skills = Skill.objects.exclude(is_featured=False)
-    socialLinks = SocialLinks.objects.all()
+    sociallinks = SocialLinks.objects.all()
     services = Service.objects.exclude(is_featured=False)
     projects = (
         Project.objects.exclude(is_featured=False)
@@ -59,7 +59,7 @@ def get_home_context(form=None):
         "faqs": faqs,
         "industries": industries,
         "form": form or ContactForm(),
-        "socialLinks": socialLinks,
+        "sociallinks": sociallinks,
     }
 
 
