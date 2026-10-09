@@ -57,7 +57,6 @@ def get_home_context(form=None):
         "testimonials": testimonials,
         "faqs": faqs,
         "industries": industries,
-        'pro'
         "form": form or ContactForm(),
     }
 
