@@ -1,3 +1,4 @@
+
 import os
 from pathlib import Path
 
@@ -57,13 +58,7 @@ INSTALLED_APPS = [
     # Unfold must come before django.contrib.admin
     "unfold",
 
-    # Optional Unfold integrations:
-    # Enable only when needed and dependencies are installed.
-    # "unfold.contrib.filters",
-    # "unfold.contrib.forms",
-    # "unfold.contrib.inlines",
-    # "unfold.contrib.import_export",
-
+    # Django apps
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -71,11 +66,45 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
+    # Cloudinary media storage
+    "cloudinary_storage",
+    "cloudinary",
+
     # Project apps
     "pages",
     "projects",
     "testimonials",
 ]
+
+
+# =========================================================
+# CLOUDINARY CONFIGURATION
+# =========================================================
+
+CLOUDINARY_CLOUD_NAME = os.getenv("CLOUDINARY_CLOUD_NAME")
+CLOUDINARY_API_KEY = os.getenv("CLOUDINARY_API_KEY")
+CLOUDINARY_API_SECRET = os.getenv("CLOUDINARY_API_SECRET")
+
+if not all(
+    [
+        CLOUDINARY_CLOUD_NAME,
+        CLOUDINARY_API_KEY,
+        CLOUDINARY_API_SECRET,
+    ]
+):
+    raise ImproperlyConfigured(
+        "CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, and "
+        "CLOUDINARY_API_SECRET must be configured."
+    )
+
+CLOUDINARY_STORAGE = {
+    "CLOUD_NAME": CLOUDINARY_CLOUD_NAME,
+    "API_KEY": CLOUDINARY_API_KEY,
+    "API_SECRET": CLOUDINARY_API_SECRET,
+    "SECURE": True,
+}
+
+MEDIA_URL = "/media/"
 
 
 # =========================================================
@@ -87,12 +116,9 @@ UNFOLD = {
     "SITE_HEADER": "Admin",
     "SITE_SUBHEADER": "Portfolio Management",
     "SITE_SYMBOL": "dashboard",
-
     "SHOW_HISTORY": True,
     "SHOW_VIEW_ON_SITE": True,
-
     "THEME": "dark",
-
     "COLORS": {
         "primary": {
             "50": "239 246 255",
@@ -118,7 +144,6 @@ UNFOLD = {
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
-
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -230,7 +255,7 @@ USE_TZ = True
 
 
 # =========================================================
-# STATIC FILES & WHITENOISE
+# STATIC FILES, MEDIA & STORAGE
 # =========================================================
 
 STATIC_URL = "/static/"
@@ -242,9 +267,14 @@ STATICFILES_DIRS = [
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 STORAGES = {
+    # Uploaded files: Cloudinary
     "default": {
-        "BACKEND": "django.core.files.storage.FileSystemStorage",
+        "BACKEND": (
+            "cloudinary_storage.storage.MediaCloudinaryStorage"
+        ),
     },
+
+    # CSS, JavaScript and static images: WhiteNoise
     "staticfiles": {
         "BACKEND": (
             "whitenoise.storage.CompressedManifestStaticFilesStorage"
@@ -265,18 +295,16 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # =========================================================
 
 if not DEBUG:
-    # Render terminates HTTPS at its proxy
+    # Railway terminates HTTPS at its proxy
     SECURE_PROXY_SSL_HEADER = (
         "HTTP_X_FORWARDED_PROTO",
         "https",
     )
 
-    SECURE_SSL_REDIRECT = (
-        os.getenv("DJANGO_SECURE_SSL_REDIRECT", "True")
-        .strip()
-        .lower()
-        in {"true", "1", "yes"}
-    )
+    SECURE_SSL_REDIRECT = os.getenv(
+        "DJANGO_SECURE_SSL_REDIRECT",
+        "True",
+    ).strip().lower() in {"true", "1", "yes"}
 
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
@@ -289,14 +317,16 @@ if not DEBUG:
     SECURE_HSTS_PRELOAD = False
 
 
+# =========================================================
+# LOGGING
+# =========================================================
+
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
     "formatters": {
         "verbose": {
-            "format": (
-                "{asctime} {levelname} {name}: {message}"
-            ),
+            "format": "{asctime} {levelname} {name}: {message}",
             "style": "{",
         },
     },
