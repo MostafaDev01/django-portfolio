@@ -24,6 +24,7 @@ def get_home_context(form=None):
     Builds the context dictionary for the homepage index view.
     Reused by ContactCreateView when form validation fails.
     """
+    profile = Profile.objects.first()
     hero = Hero.objects.first()
     skills = Skill.objects.exclude(is_featured=False)
     services = Service.objects.exclude(is_featured=False)
@@ -47,6 +48,7 @@ def get_home_context(form=None):
 
     return {
         "hero": hero,
+        "profile": profile,
         "skills": skills,
         "services": services,
         "projects": projects,
@@ -55,6 +57,7 @@ def get_home_context(form=None):
         "testimonials": testimonials,
         "faqs": faqs,
         "industries": industries,
+        'pro'
         "form": form or ContactForm(),
     }
 
