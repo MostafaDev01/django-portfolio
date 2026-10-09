@@ -1,0 +1,32 @@
+{% load static %}
+<!-- Header / Navbar -->
+<header id="header" class="header d-flex align-items-center sticky-top">
+  <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+    <a href="{% url 'home' %}" class="logo d-flex align-items-center me-auto me-xl-0">
+      <!-- Uncomment the line below if you also wish to use an image logo -->
+      <!-- <img src="{% static 'img/logo.webp' %}" alt=""> -->
+      <h1 class="sitename">{{ profile.name|default:"Portfolio" }}</h1>
+    </a>
+
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="{% url 'home' %}#hero" class="active">Home</a></li>
+        <li><a href="{% url 'home' %}#about">Consultant Profile</a></li>
+        <li><a href="{% url 'home' %}#resume">Background</a></li>
+        <li><a href="{% url 'home' %}#portfolio">Projects</a></li>
+        <li><a href="{% url 'home' %}#services">Consulting Services</a></li>
+        <li><a href="{% url 'projects' %}">All Projects</a></li>
+        <li><a href="{% url 'home' %}#contact">Contact</a></li>
+      </ul>
+      <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+    </nav>
+
+    <div class="header-social-links">
+      {% for sociallink in sociallinks %}
+      <a href="{{sociallink.url}}" class="{{sociallink.name}}"><i class="{{sociallink.icon}}"></i></a>
+      {% endfor %} 
+    </div>
+
+  </div>
+</header><!-- End Header -->

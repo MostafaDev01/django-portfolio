@@ -1,0 +1,1000 @@
+/*--------------------------------------------------------------
+# Portfolio Details Page
+--------------------------------------------------------------*/
+
+.portfolio-details {
+  padding-bottom: 110px;
+}
+
+
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+
+.portfolio-details-page .page-title {
+  text-align: center;
+  padding: 55px 0 50px;
+}
+
+.portfolio-details-page .page-title .title-wrapper {
+  padding: 0;
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.portfolio-details-page .page-title .title-wrapper h1 {
+  max-width: 860px;
+
+  margin: 0 auto 22px;
+
+  font-size: clamp(20px, 5vw, 50px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -1.8px;
+
+  text-align: center;
+
+  background: linear-gradient(
+    135deg,
+    var(--heading-color) 10%,
+    var(--accent-color) 90%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.portfolio-details-page .page-title .title-wrapper p {
+  max-width: 720px;
+
+  margin: 0 auto;
+
+  font-size: 17px;
+  line-height: 1.8;
+
+  text-align: center;
+
+  color: color-mix(
+    in srgb,
+    var(--default-color),
+    transparent 20%
+  );
+}
+
+
+/*--------------------------------------------------------------
+# Quick Meta
+--------------------------------------------------------------*/
+
+.portfolio-details-page .page-title .quick-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+
+  margin-top: 28px;
+}
+
+.portfolio-details-page .page-title .quick-meta .meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 9px 14px;
+
+  border: 1px solid color-mix(
+    in srgb,
+    var(--default-color),
+    transparent 88%
+  );
+
+  border-radius: 999px;
+
+  background-color: var(--surface-color);
+
+  color: var(--default-color);
+
+  font-size: 13px;
+  font-weight: 500;
+
+  box-shadow:
+    0 4px 15px rgba(0, 0, 0, 0.025);
+}
+
+.portfolio-details-page .page-title .quick-meta .meta-item i {
+  color: var(--accent-color);
+
+  font-size: 14px;
+}
+
+
+/*--------------------------------------------------------------
+# Main Layout
+--------------------------------------------------------------*/
+
+.portfolio-details .project-content {
+  padding-right: 25px;
+}
+
+.portfolio-details .content-block {
+  margin-bottom: 50px;
+}
+
+
+/*--------------------------------------------------------------
+# Section Headings
+--------------------------------------------------------------*/
+
+.portfolio-details .content-block h2,
+.portfolio-details .content-block h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 18px;
+
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.35;
+
+  color: var(--heading-color);
+}
+
+.portfolio-details .content-block h2 i,
+.portfolio-details .content-block h3 i {
+  color: var(--accent-color);
+
+  font-size: 22px;
+}
+
+.portfolio-details .content-block p {
+  margin-bottom: 16px;
+
+  font-size: 15.5px;
+  line-height: 1.85;
+
+  color: color-mix(
+    in srgb,
+    var(--default-color),
+    transparent 15%
+  );
+}
+
+
+/*--------------------------------------------------------------
+# Project Showcase
+--------------------------------------------------------------*/
+
+.portfolio-details .project-showcase {
+  position: relative;
+
+  overflow: hidden;
+
+  margin-bottom: 55px;
+
+  border-radius: 26px;
+
+  background-color: var(--surface-color);
+
+  border: 1px solid color-mix(
+    in srgb,
+    var(--default-color),
+    transparent 90%
+  );
+
+  box-shadow:
+    0 18px 55px rgba(0, 0, 0, 0.08);
+}
+
+.portfolio-details .project-showcase img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  transition: transform 0.5s ease;
+}
+
+.portfolio-details .project-showcase:hover img {
+  transform: scale(1.015);
+}
+
+
+/*--------------------------------------------------------------
+# Case Study Cards
+--------------------------------------------------------------*/
+
+.portfolio-details .case-card {
+  padding: 26px 28px;
+
+  margin-bottom: 22px;
+
+  background-color: var(--surface-color);
+
+  border: 1px solid color-mix(
+    in srgb,
+    var(--default-color),
+    transparent 88%
+  );
+
+  border-radius: 14px;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.portfolio-details .case-card:hover {
+  transform: translateY(-2px);
+
+  border-color: color-mix(
+    in srgb,
+    var(--default-color),
+    transparent 78%
+  );
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+.portfolio-details .case-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  margin: 0 0 12px;
+
+  font-size: 17px;
+  font-weight: 700;
+
+  color: var(--heading-color);
+}
+
+.portfolio-details .case-card h3 i {
+  color: var(--accent-color);
+
+  font-size: 19px;
+}
+
+.portfolio-details .case-card p {
+  margin: 0;
+
+  font-size: 14.5px;
+  line-height: 1.8;
+
+  color: color-mix(
+    in srgb,
+    var(--default-color),
+    transparent 18%
+  );
+}
+
+
+/*--------------------------------------------------------------
+# Challenge / Solution / Results
+--------------------------------------------------------------*/
+
+.portfolio-details .case-card.challenge-card,
+.portfolio-details .case-card.solution-card,
+.portfolio-details .case-card.results-card {
+  background-color: var(--surface-color);
+
+  border-color: color-mix(
+    in srgb,
+    var(--default-color),
+    transparent 88%
+  );
+}
+
+.portfolio-details .case-card.challenge-card h3,
+.portfolio-details .case-card.solution-card h3,
+.portfolio-details .case-card.results-card h3 {
+  color: var(--heading-color);
+}
+
+.portfolio-details .case-card.challenge-card h3 i,
+.portfolio-details .case-card.solution-card h3 i,
+.portfolio-details .case-card.results-card h3 i {
+  color: var(--accent-color);
+}
+
+
+/*--------------------------------------------------------------
+# Content Lists
+--------------------------------------------------------------*/
+
+.portfolio-details .content-list {
+  margin: 20px 0 0;
+
+  padding: 0;
+
+  list-style: none;
+}
+
+.portfolio-details .content-list li {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 11px;
+
+  margin-bottom: 12px;
+
+  font-size: 14.5px;
+  line-height: 1.7;
+
+  color: color-mix(
+    in srgb,
+    var(--default-color),
+    transparent 15%
+  );
+}
+
+.portfolio-details .content-list li i {
+  flex-shrink: 0;
+
+  margin-top: 4px;
+
+  color: var(--accent-color);
+
+  font-size: 15px;
+}
+
+
+/*--------------------------------------------------------------
+# Odoo Modules
+--------------------------------------------------------------*/
+
+.portfolio-details .odoo-modules-grid {
+  margin-top: 18px;
+}
+
+.portfolio-details .odoo-module-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 22px 24px;
+  background: color-mix(in srgb, var(--accent-color), var(--surface-color) 96%);
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 82%);
+  border-left: 4px solid var(--accent-color);
+  border-radius: 14px;
+}
+
+.portfolio-details .odoo-module-card .module-icon {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background-color: var(--surface-color);
+  color: var(--accent-color);
+  font-size: 21px;
+}
+
+.portfolio-details .odoo-module-card .module-copy {
+  min-width: 0;
+}
+
+.portfolio-details .odoo-module-card .module-label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--accent-color);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.portfolio-details .odoo-module-card p {
+  margin: 0;
+  color: var(--heading-color);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+
+/*--------------------------------------------------------------
+# Sidebar
+--------------------------------------------------------------*/
+
+.portfolio-details .project-sidebar {
+  position: relative;
+}
+
+.portfolio-details .project-info-card {
+  position: sticky;
+  top: 110px;
+
+  padding: 28px;
+
+  background-color: var(--surface-color);
+
+  border: 1px solid color-mix(
+    in srgb,
+    var(--default-color),
+    transparent 88%
+  );
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 6px 25px rgba(0, 0, 0, 0.045);
+}
+
+.portfolio-details .project-info-card h3 {
+  margin: 0 0 20px;
+
+  padding-bottom: 14px;
+
+  border-bottom: 1px solid color-mix(
+    in srgb,
+    var(--default-color),
+    transparent 90%
+  );
+
+  font-size: 19px;
+  font-weight: 700;
+
+  color: var(--heading-color);
+}
+
+
+/*--------------------------------------------------------------
+# Info List
+--------------------------------------------------------------*/
+
+.portfolio-details .info-list {
+  margin: 0;
+
+  padding: 0;
+
+  list-style: none;
+}
+
+.portfolio-details .info-list li {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 12px;
+
+  margin-bottom: 18px;
+}
+
+.portfolio-details .info-list li:last-child {
+  margin-bottom: 0;
+}
+
+.portfolio-details .info-list li i {
+  flex-shrink: 0;
+
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+
+  color: var(--accent-color);
+
+  font-size: 16px;
+}
+
+.portfolio-details .info-list li .info-content {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.portfolio-details .info-list li .info-label {
+  font-size: 11px;
+  font-weight: 600;
+
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  color: color-mix(
+    in srgb,
+    var(--default-color),
+    transparent 40%
+  );
+}
+
+.portfolio-details .info-list li .info-value {
+  font-size: 14px;
+  font-weight: 600;
+
+  color: var(--heading-color);
+}
+
+
+/*--------------------------------------------------------------
+# Technologies & Skills
+--------------------------------------------------------------*/
+
+.portfolio-details .skills-section {
+  margin-top: 30px;
+
+  padding-top: 24px;
+
+  border-top: 1px solid color-mix(
+    in srgb,
+    var(--default-color),
+    transparent 90%
+  );
+}
+
+.portfolio-details .skills-section h4 {
+  margin-bottom: 13px;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  color: var(--heading-color);
+}
+
+.portfolio-details .skills-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 6px;
+}
+
+
+/* Smaller skill circles / pills */
+
+.portfolio-details .skill-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 28px;
+
+  padding: 5px 9px;
+
+  background-color: transparent;
+
+  border: 1px solid color-mix(
+    in srgb,
+    var(--default-color),
+    transparent 84%
+  );
+
+  border-radius: 999px;
+
+  color: color-mix(
+    in srgb,
+    var(--default-color),
+    transparent 10%
+  );
+
+  font-size: 10.5px;
+  font-weight: 500;
+
+  line-height: 1;
+
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.portfolio-details .skill-pill:hover {
+  transform: translateY(-1px);
+
+  border-color: var(--accent-color);
+
+  color: var(--accent-color);
+
+  background-color: color-mix(
+    in srgb,
+    var(--accent-color),
+    transparent 95%
+  );
+}
+
+
+/*--------------------------------------------------------------
+# Project Links
+--------------------------------------------------------------*/
+
+.portfolio-details .project-links {
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+
+  margin-top: 28px;
+}
+
+
+/* Main button */
+
+.portfolio-details .project-links a {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  width: 100%;
+
+  padding: 13px 18px;
+
+  overflow: hidden;
+
+  border: 1px solid var(--accent-color);
+
+  border-radius: 10px;
+
+  background-color: var(--accent-color);
+
+  color: #fff;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.portfolio-details .project-links a:hover {
+  transform: translateY(-2px);
+
+  background-color: color-mix(
+    in srgb,
+    var(--accent-color),
+    black 10%
+  );
+
+  box-shadow:
+    0 8px 20px color-mix(
+      in srgb,
+      var(--accent-color),
+      transparent 75%
+    );
+}
+
+.portfolio-details .project-links a i {
+  font-size: 15px;
+
+  transition: transform 0.3s ease;
+}
+
+.portfolio-details .project-links a:hover i {
+  transform: translateX(3px);
+}
+
+
+/* Secondary button */
+
+.portfolio-details .project-links a.secondary-link {
+  background-color: transparent;
+
+  border-color: color-mix(
+    in srgb,
+    var(--default-color),
+    transparent 82%
+  );
+
+  color: var(--heading-color);
+
+  box-shadow: none;
+}
+
+.portfolio-details .project-links a.secondary-link:hover {
+  border-color: var(--accent-color);
+
+  background-color: color-mix(
+    in srgb,
+    var(--accent-color),
+    transparent 95%
+  );
+
+  color: var(--accent-color);
+
+  box-shadow: none;
+}
+
+
+/*--------------------------------------------------------------
+# Technologies Tags
+--------------------------------------------------------------*/
+
+.portfolio-details .technology-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 7px;
+
+  margin-top: 18px;
+}
+
+.portfolio-details .technology-list span {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 6px 9px;
+
+  border-radius: 7px;
+
+  background-color: color-mix(
+    in srgb,
+    var(--default-color),
+    transparent 96%
+  );
+
+  border: 1px solid color-mix(
+    in srgb,
+    var(--default-color),
+    transparent 90%
+  );
+
+  color: var(--default-color);
+
+  font-size: 11px;
+  font-weight: 500;
+}
+
+
+/*--------------------------------------------------------------
+# Content Divider
+--------------------------------------------------------------*/
+
+.portfolio-details .content-divider {
+  width: 100%;
+  height: 1px;
+
+  margin: 45px 0;
+
+  background-color: color-mix(
+    in srgb,
+    var(--default-color),
+    transparent 90%
+  );
+}
+
+
+/*--------------------------------------------------------------
+# Back Link
+--------------------------------------------------------------*/
+
+.portfolio-details .back-link {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 8px;
+
+  margin-top: 30px;
+
+  color: var(--accent-color);
+
+  font-size: 14px;
+  font-weight: 600;
+
+  transition:
+    gap 0.25s ease,
+    color 0.25s ease;
+}
+
+.portfolio-details .back-link:hover {
+  gap: 11px;
+
+  color: var(--heading-color);
+}
+
+
+/*--------------------------------------------------------------
+# Responsive - Large
+--------------------------------------------------------------*/
+
+@media (max-width: 1199px) {
+
+  .portfolio-details-page .page-title .title-wrapper {
+    padding: 70px 0 60px;
+  }
+
+  .portfolio-details .project-content {
+    padding-right: 10px;
+  }
+
+  .portfolio-details .project-info-card {
+    padding: 24px;
+  }
+}
+
+
+/*--------------------------------------------------------------
+# Responsive - Tablet
+--------------------------------------------------------------*/
+
+@media (max-width: 991px) {
+
+  .portfolio-details {
+    padding-bottom: 80px;
+  }
+
+  .portfolio-details-page .page-title .title-wrapper {
+    padding: 60px 0 50px;
+  }
+
+  .portfolio-details-page .page-title .title-wrapper h1 {
+    font-size: clamp(38px, 8vw, 56px);
+  }
+
+  .portfolio-details .project-content {
+    padding-right: 0;
+  }
+
+  .portfolio-details .project-sidebar {
+    margin-top: 45px;
+  }
+
+  .portfolio-details .project-info-card {
+    position: relative;
+
+    top: auto;
+  }
+
+  .portfolio-details .project-showcase {
+    margin-bottom: 45px;
+
+    border-radius: 20px;
+  }
+}
+
+
+/*--------------------------------------------------------------
+# Responsive - Mobile
+--------------------------------------------------------------*/
+
+@media (max-width: 767px) {
+
+  .portfolio-details {
+    padding-bottom: 60px;
+  }
+
+  .portfolio-details-page .page-title .title-wrapper {
+    padding: 45px 0 40px;
+  }
+
+  .portfolio-details-page .page-title .title-wrapper h1 {
+    margin-bottom: 16px;
+
+    font-size: 38px;
+
+    letter-spacing: -0.8px;
+  }
+
+  .portfolio-details-page .page-title .title-wrapper p {
+    font-size: 15px;
+
+    line-height: 1.7;
+  }
+
+  .portfolio-details .quick-meta {
+    gap: 7px;
+
+    margin-top: 22px;
+  }
+
+  .portfolio-details .quick-meta .meta-item {
+    padding: 7px 11px;
+
+    font-size: 11.5px;
+  }
+
+  .portfolio-details .project-showcase {
+    margin-bottom: 38px;
+
+    border-radius: 16px;
+  }
+
+  .portfolio-details .content-block {
+    margin-bottom: 38px;
+  }
+
+  .portfolio-details .content-block h2,
+  .portfolio-details .content-block h3 {
+    font-size: 20px;
+  }
+
+  .portfolio-details .content-block p {
+    font-size: 14.5px;
+
+    line-height: 1.75;
+  }
+
+  .portfolio-details .case-card {
+    padding: 21px;
+
+    margin-bottom: 16px;
+  }
+
+  .portfolio-details .case-card h3 {
+    font-size: 16px;
+  }
+
+  .portfolio-details .case-card p {
+    font-size: 14px;
+  }
+
+  .portfolio-details .odoo-modules-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-details .project-info-card {
+    padding: 22px;
+  }
+}
+
+
+/*--------------------------------------------------------------
+# Responsive - Small Mobile
+--------------------------------------------------------------*/
+
+@media (max-width: 575px) {
+
+  .portfolio-details-page .page-title .title-wrapper {
+    padding: 35px 0 30px;
+  }
+
+  .portfolio-details-page .page-title .title-wrapper h1 {
+    font-size: 32px;
+  }
+
+  .portfolio-details-page .page-title .title-wrapper p {
+    font-size: 14px;
+  }
+
+  .portfolio-details .quick-meta {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .portfolio-details .quick-meta .meta-item {
+    width: fit-content;
+  }
+
+  .portfolio-details .case-card {
+    padding: 18px;
+  }
+
+  .portfolio-details .odoo-module-card {
+    padding: 14px;
+  }
+
+  .portfolio-details .project-info-card {
+    padding: 20px;
+  }
+
+  .portfolio-details .skill-pill {
+    min-height: 26px;
+
+    padding: 4px 8px;
+
+    font-size: 10px;
+  }
+
+  .portfolio-details .project-links a {
+    padding: 12px 15px;
+
+    font-size: 12px;
+  }
+}

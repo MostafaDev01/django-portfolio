@@ -1,0 +1,37 @@
+<!-- Faq Section -->
+<section id="faq" class="faq section">
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Frequently Asked Questions</h2>
+    <div class="title-shape">
+      <svg viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 0,10 C 40,0 60,20 100,10 C 140,0 160,20 200,10" fill="none" stroke="currentColor" stroke-width="2"></path>
+      </svg>
+    </div>
+    <p>Answers to common questions about Odoo functional consulting and ERP workflows.</p>
+  </div>
+  <!-- End Section Title -->
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
+        <div class="faq-container">
+          {% for faq in faqs %}
+            {% if faq.is_featured %}
+              <div class="faq-item">
+                <h3>{{ faq.question }}</h3>
+                <div class="faq-content">
+                  <p>{{ faq.answer }}</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div>
+              <!-- End Faq item -->
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      <!-- End Faq Column -->
+    </div>
+  </div>
+</section>
+<!-- /Faq Section -->

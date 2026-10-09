@@ -1,0 +1,231 @@
+﻿{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  {{ project.title|default:'Project Case Study' }} - EasyFolio
+{% endblock %}
+{% block meta_description %}
+  {{ project.short_description|default:'Discover how this project was designed and engineered from concept to execution.' }}
+{% endblock %}
+{% block body_class %}
+  portfolio-details-page
+{% endblock %}
+
+{% block extra_css %}
+  <link href="{% static 'css/pages/portfolio-details.css' %}?v={% now 'U' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+  <!-- Page Title / Hero -->
+  <div class="page-title">
+    <div class="container">
+      <div class="title-wrapper">
+        <!-- Breadcrumb -->
+        <div class="breadcrumbs">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="{% url 'home' %}"><i class="bi bi-house"></i> Home</a>
+              </li>
+              <li class="breadcrumb-item">
+                <a href="{% url 'home' %}#portfolio">Portfolio</a>
+              </li>
+              <li class="breadcrumb-item active">{{ project.title|default:'Project Details' }}</li>
+            </ol>
+          </nav>
+        </div>
+
+        <!-- Project Title -->
+        <h1>{{ project.title|default:'Enterprise E-Commerce & Odoo ERP Integration' }}</h1>
+
+        <!-- Short Description -->
+        <p>{{ project.short_description|default:'A comprehensive digital transformation featuring a modern responsive frontend seamlessly unified with custom Odoo 19 ERP modules.' }}</p>
+
+        <!-- Quick Meta Badges -->
+        <div class="quick-meta">
+          {% if project.industry %}
+            <span class="meta-item"><i class="bi bi-tag"></i> {{ project.industry }}</span>
+          {% else %}
+            <span class="meta-item"><i class="bi bi-tag"></i> Digital Commerce</span>
+          {% endif %}
+
+          {% if project.client %}
+            <span class="meta-item"><i class="bi bi-building"></i> {{ project.client }}</span>
+          {% else %}
+            <span class="meta-item"><i class="bi bi-building"></i> Apex Global Corp</span>
+          {% endif %}
+
+          {% if project.start_date %}
+            <span class="meta-item">
+              <i class="bi bi-calendar3"></i> {{ project.start_date|date:'M Y' }}{% if project.end_date %}
+                - {{ project.end_date|date:'M Y' }}
+              {% else %}
+                - Present
+              {% endif %}
+            </span>
+          {% else %}
+            <span class="meta-item"><i class="bi bi-calendar3"></i> Jan 2024 - Sep 2024</span>
+          {% endif %}
+
+          {% if project.is_featured %}
+            <span class="meta-item" style="color: var(--accent-color);"><i class="bi bi-star-fill"></i> Featured</span>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Page Title -->
+
+  <!-- Portfolio Details Section -->
+  <section id="portfolio-details" class="portfolio-details section">
+    <div class="container" data-aos="fade-up">
+      <!-- Showcase Image -->
+      <div class="project-showcase" data-aos="zoom-in" data-aos-delay="100">
+        {% if project.image %}
+          <img src="{{ project.image.url }}" alt="{{ project.title }}" class="img-fluid" />
+        {% else %}
+          <img src="{% static 'img/portfolio/portfolio-1.webp' %}" alt="Project Showcase" class="img-fluid" />
+        {% endif %}
+      </div>
+
+      <!-- Main Row -->
+      <div class="row g-lg-5">
+        <!-- Left: Content -->
+        <div class="col-lg-8">
+          <div class="project-content">
+            <!-- Overview -->
+            <div class="content-block" data-aos="fade-up" data-aos-delay="150">
+              <h2><i class="bi bi-journal-text"></i> Project Overview</h2>
+              <p>{{ project.description|linebreaksbr|default:"This project represents a pivotal overhaul of the client's digital infrastructure. By bridging front-end customer interaction with streamlined back-office operations, we designed an intuitive, responsive user experience backed by robust operational workflows." }}</p>
+            </div>
+
+            <!-- Challenge -->
+            <div class="case-card challenge-card" data-aos="fade-up" data-aos-delay="200">
+              <h3><i class="bi bi-exclamation-triangle-fill"></i> The Challenge</h3>
+              <p>{{ project.challenge|linebreaksbr|default:'The client was struggling with fragmented platforms: legacy inventory tracking caused stock discrepancies, while a slow, cluttered desktop-only website resulted in high checkout bounce rates and sluggish transaction handling.' }}</p>
+            </div>
+
+            <!-- Solution -->
+            <div class="case-card solution-card" data-aos="fade-up" data-aos-delay="250">
+              <h3><i class="bi bi-lightbulb-fill"></i> Functional Approach</h3>
+              <p>{{ project.solution|linebreaksbr|default:'We engineered an omnichannel web application with micro-interactions and seamless mobile navigation. On the back office, we customized and synchronized inventory, order processing, and payment reconciliation modules to operate automatically in real time.' }}</p>
+            </div>
+
+            <!-- Results -->
+            <div class="case-card results-card" data-aos="fade-up" data-aos-delay="300">
+              <h3><i class="bi bi-trophy-fill"></i> Outcomes</h3>
+              <p>{{ project.results|linebreaksbr|default:'Following launch, conversion rates surged by 45%, checkout abandonment dropped by 32%, and order synchronization errors were eliminated completely across all sales channels.' }}</p>
+            </div>
+
+            <!-- Odoo Modules -->
+            {% if project and project.odoo_modules %}
+              <div class="content-block mt-4" data-aos="fade-up" data-aos-delay="350">
+                <h2>
+                  <i class="bi bi-boxes"></i>
+                  Odoo Modules
+                </h2>
+
+                <div class="odoo-modules-grid">
+                  <div class="odoo-module-card">
+                    <div class="module-icon">
+                      <i class="bi bi-gear-wide-connected"></i>
+                    </div>
+
+                    <div class="module-copy">
+                      <span class="module-label">ERP Customization</span>
+                      <p>{{ project.odoo_modules }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+
+        <!-- Right: Sidebar -->
+        <div class="col-lg-4">
+          <div class="project-sidebar" data-aos="fade-left" data-aos-delay="200">
+            <div class="project-info-card">
+              <h3>Project Details</h3>
+
+              <ul class="info-list">
+                <li>
+                  <i class="bi bi-building"></i>
+                  <div class="info-content">
+                    <span class="info-label">Client</span>
+                    <span class="info-value">{{ project.client|default:'Apex Global Corp' }}</span>
+                  </div>
+                </li>
+
+                <li>
+                  <i class="bi bi-grid-3x3-gap"></i>
+                  <div class="info-content">
+                    <span class="info-label">Industry</span>
+                    <span class="info-value">{{ project.industry|default:'E-Commerce & Retail' }}</span>
+                  </div>
+                </li>
+
+                <li>
+                  <i class="bi bi-calendar-event"></i>
+                  <div class="info-content">
+                    <span class="info-label">Timeline</span>
+                    <span class="info-value">
+                      {% if project.start_date %}
+                        {{ project.start_date|date:'F Y' }} -{% if project.end_date %}
+                          {{ project.end_date|date:'F Y' }}
+                        {% else %}
+                          Present
+                        {% endif %}
+                      {% else %}
+                        January 2024 - September 2024
+                      {% endif %}
+                    </span>
+                  </div>
+                </li>
+
+                <li>
+                  <i class="bi bi-clock-history"></i>
+                  <div class="info-content">
+                    <span class="info-label">Published On</span>
+                    <span class="info-value">{{ project.created_at|date:'d M, Y'|default:'15 September 2024' }}</span>
+                  </div>
+                </li>
+              </ul>
+
+              <!-- Skills -->
+              <div class="skills-section">
+                <h4>Functional Scope</h4>
+                <div class="skills-list">
+                  {% if project.skills.all %}
+                    {% for skill in project.skills.all %}
+                      <span class="skill-pill">{{ skill.name }}</span>
+                    {% endfor %}
+                  {% else %}
+                    <span class="skill-pill">Odoo</span>
+                  {% endif %}
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="project-links">
+                {% if project.links and project.links.url %}
+                  <a href="{{ project.links.url }}" target="_blank" rel="noopener noreferrer">
+                    <i class="{{ project.links.icon }}"></i>
+                    <span>{{ project.links.name|default:'Visit Live Project' }}</span>
+                  </a>
+                {% endif %}
+
+                <a href="{% url 'home' %}#portfolio" class="secondary-link">
+                  <i class="bi bi-arrow-left"></i>
+                  <span>Back to Projects</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Row -->
+    </div>
+  </section>
+  <!-- End Portfolio Details -->
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Odoo Functional Consultant{% endblock %}
+{% block body_class %}index-page{% endblock %}
+
+{% block content %}
+  {% include 'components/hero.html' %}
+  {% include 'components/about.html' %}
+  {% include 'components/skills.html' %}
+  {% include 'components/resume.html' %}
+  {% include 'components/portfolio.html' %}
+  {% include 'components/testimonials.html' %}
+  {% include 'components/services.html' %}
+  {% include 'components/faq.html' %}
+  {% include 'components/contact.html' %}
+{% endblock %}

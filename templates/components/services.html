@@ -1,0 +1,44 @@
+<!-- Services Section -->
+<section id="services" class="services section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Services</h2>
+    <div class="title-shape">
+      <svg viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 0,10 C 40,0 60,20 100,10 C 140,0 160,20 200,10" fill="none" stroke="currentColor" stroke-width="2"></path>
+      </svg>
+    </div>
+    <p>Functional support for clarifying business needs, reviewing processes, and configuring Odoo workflows.</p>
+  </div><!-- End Section Title -->
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+    <div class="row align-items-center">
+      <div class="col-lg-4 mb-5 mb-lg-0">
+        <h2 class="fw-bold mb-4 servies-title">Odoo Functional Consulting</h2>
+        <p class="mb-4">Connect business requirements with clear ERP processes and practical Odoo workflows.</p>
+      </div>
+      <div class="col-lg-8">
+        <div class="row g-4">
+          {% for service in services %}
+          {% if service.is_featured %}
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item">
+              <i class="{{service.icon}}"></i>
+              <h3>{{service.title}}</h3>
+              <p>{{service.description}}</p>
+            </div>
+          </div><!-- End Service Item -->
+          {% endif %}
+          {% endfor %}
+
+
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</section><!-- /Services Section -->

@@ -1,0 +1,236 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Projects & Case Studies{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/pages/portfolio-archive.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="portfolio-archive">
+  <div class="container">
+
+    <!-- Page Header -->
+    <div class="section-title">
+      <h2>Projects & Case Studies</h2>
+      <p>
+        Explore project work and Odoo-related business solutions.
+      </p>
+    </div>
+
+    <!-- Archive Controls -->
+    <div class="archive-controls">
+
+      <ul class="archive-filters" aria-label="Filter projects">
+        <li
+          data-filter="*"
+          class="filter-active"
+          role="button"
+          tabindex="0"
+          aria-pressed="true"
+        >
+          All Projects
+        </li>
+
+        {% for industry in industries %}
+          <li
+            data-filter=".filter-{{ industry|slugify }}"
+            role="button"
+            tabindex="0"
+            aria-pressed="false"
+          >
+            {{ industry }}
+          </li>
+        {% endfor %}
+      </ul>
+
+      <div class="archive-meta" aria-live="polite">
+        <span>Showing</span>
+        <span class="count-badge">
+          <span class="visible-count">{{ projects|length }}</span>
+          Projects
+        </span>
+      </div>
+
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="row gy-4 portfolio-container">
+
+      {% for project in projects %}
+        <div class="col-lg-4 col-md-6 portfolio-item filter-{{ project.industry|slugify }}">
+
+          <article class="portfolio-card">
+
+            <!-- Project Image -->
+            <div class="portfolio-image">
+
+              {% if project.image %}
+                <img
+                  src="{{ project.image.url }}"
+                  alt="{{ project.title }}"
+                  loading="lazy"
+                >
+              {% else %}
+                <img
+                  src="{% static 'img/portfolio/portfolio-1.webp' %}"
+                  alt="{{ project.title }}"
+                  loading="lazy"
+                >
+              {% endif %}
+
+              <div class="portfolio-overlay">
+                <div class="portfolio-actions">
+
+                  {% if project.image %}
+                    <a
+                      href="{{ project.image.url }}"
+                      class="glightbox"
+                      data-gallery="portfolio-gallery"
+                      aria-label="Preview {{ project.title }}"
+                      title="Preview image"
+                    >
+                      <i class="bi bi-zoom-in" aria-hidden="true"></i>
+                    </a>
+                  {% endif %}
+
+                  <a
+                    href="{% url 'detail' project.slug %}"
+                    aria-label="View {{ project.title }}"
+                    title="View case study"
+                  >
+                    <i class="bi bi-link-45deg" aria-hidden="true"></i>
+                  </a>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- Project Content -->
+            <div class="portfolio-content">
+
+              {% if project.industry %}
+                <span class="category">{{ project.industry }}</span>
+              {% endif %}
+
+              <h3>
+                <a href="{% url 'detail' project.slug %}">
+                  {{ project.title }}
+                </a>
+              </h3>
+
+              <p>{{ project.short_description }}</p>
+
+              <!-- Skills and Odoo Modules -->
+              <div class="tech-tags">
+
+                {% for skill in project.skills.all|slice:":3" %}
+                  <span>{{ skill.name }}</span>
+                {% endfor %}
+
+                {% if project.odoo_modules %}
+                  <span>{{ project.odoo_modules }}</span>
+                {% endif %}
+
+              </div>
+
+            </div>
+          </article>
+        </div>
+
+      {% empty %}
+        <div class="col-12">
+          <div class="portfolio-empty">
+            <i class="bi bi-folder2-open" aria-hidden="true"></i>
+            <h3>No projects yet</h3>
+            <p>Projects will appear here once they are published.</p>
+          </div>
+        </div>
+      {% endfor %}
+
+    </div>
+
+    {% if is_paginated %}
+      <nav class="archive-pagination" aria-label="Project pages">
+        <span class="pagination-status">
+          Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+        </span>
+
+        <ul class="pagination">
+          {% if page_obj.has_previous %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous page">
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+                <span>Previous</span>
+              </a>
+            </li>
+          {% else %}
+            <li class="page-item disabled">
+              <span class="page-link" aria-disabled="true">
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+                <span>Previous</span>
+              </span>
+            </li>
+          {% endif %}
+
+          {% for page_number in page_obj.paginator.page_range %}
+            {% if page_number == page_obj.number %}
+              <li class="page-item active">
+                <span class="page-link" aria-current="page">{{ page_number }}</span>
+              </li>
+            {% else %}
+              <li class="page-item">
+                <a class="page-link" href="?page={{ page_number }}" aria-label="Page {{ page_number }}">{{ page_number }}</a>
+              </li>
+            {% endif %}
+          {% endfor %}
+
+          {% if page_obj.has_next %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next page">
+                <span>Next</span>
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </a>
+            </li>
+          {% else %}
+            <li class="page-item disabled">
+              <span class="page-link" aria-disabled="true">
+                <span>Next</span>
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </span>
+            </li>
+          {% endif %}
+        </ul>
+      </nav>
+    {% endif %}
+
+    <!-- Empty Filter Result -->
+    {% if projects %}
+      <div class="filter-empty" hidden>
+        <i class="bi bi-search" aria-hidden="true"></i>
+        <h3>No matching projects</h3>
+        <p>Try selecting another industry.</p>
+      </div>
+    {% endif %}
+
+    <!-- Call to Action -->
+    <div class="archive-cta">
+      <h3>Have an Odoo Requirement to Discuss?</h3>
+      <p>
+        Use the contact form to discuss your business processes and ERP requirements.
+      </p>
+
+      <a href="{% url 'home' %}#contact" class="btn-cta">
+        Get in Touch
+        <i class="bi bi-arrow-right" aria-hidden="true"></i>
+      </a>
+    </div>
+
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/pages/portfolio-archive.js' %}" defer></script>
+{% endblock %}

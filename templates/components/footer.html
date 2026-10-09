@@ -1,0 +1,275 @@
+<!-- ==================== FOOTER ==================== -->
+
+<footer id="footer" class="footer">
+  <div class="footer-container">
+    <!-- Brand & Description -->
+    <div class="footer-content">
+      <div class="footer-brand">
+        <a href="#hero" class="footer-logo">
+          <span class="logo-icon">O</span>
+          <span>Odoo Functional Consultant</span>
+        </a>
+
+        <p>Supporting business operations through clear requirements, processes, and Odoo ERP workflows.</p>
+      </div>
+
+      <!-- Social Links -->
+      <div class="footer-social">
+        {% for sociallink in sociallinks %}
+          <a href="{{ sociallink.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ sociallink.name }}"><i class="{{ sociallink.icon }}"></i></a>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-bottom">
+      <p>
+        &copy; <span id="current-year"></span>
+        <strong>{{ profile.name|default:"Portfolio" }}</strong>. All rights reserved.
+      </p>
+
+      <a href="#hero" class="back-to-top-link">
+        Back to top
+        <i class="bi bi-arrow-up"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll To Top Button -->
+
+<a href="#hero" id="scroll-top" class="scroll-top" aria-label="Scroll to top"><i class="bi bi-arrow-up"></i></a>
+
+<style>
+  /* ==================== FOOTER ==================== */
+  
+  .footer {
+    --footer-border: color-mix(in srgb, var(--default-color), transparent 88%);
+  
+    color: var(--default-color);
+    background: var(--background-color);
+    font-size: 14px;
+    padding: 45px 0 20px;
+    border-top: 1px solid var(--footer-border);
+  }
+  
+  .footer-container {
+    width: min(1140px, calc(100% - 40px));
+    margin: 0 auto;
+  }
+  
+  .footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    padding-bottom: 30px;
+  }
+  
+  .footer-brand {
+    max-width: 360px;
+  }
+  
+  .footer-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--heading-color);
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-logo:hover {
+    color: var(--accent-color);
+  }
+  
+  .logo-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: var(--accent-color);
+    color: var(--contrast-color);
+    font-size: 18px;
+    font-weight: 800;
+  }
+  
+  .footer-brand p {
+    margin: 12px 0 0;
+    max-width: 330px;
+    line-height: 1.8;
+    color: color-mix(in srgb, var(--default-color), transparent 25%);
+  }
+  
+  /* Social Icons */
+  
+  .footer-social {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .footer-social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--footer-border);
+    border-radius: 12px;
+    color: var(--default-color);
+    font-size: 17px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .footer-social a:hover {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+    background: color-mix(in srgb, var(--accent-color), transparent 93%);
+    transform: translateY(-3px);
+  }
+  
+  /* Bottom Bar */
+  
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--footer-border);
+  }
+  
+  .footer-bottom p {
+    margin: 0;
+    line-height: 1.7;
+    color: color-mix(in srgb, var(--default-color), transparent 30%);
+  }
+  
+  .footer-bottom strong {
+    color: var(--heading-color);
+    font-weight: 600;
+  }
+  
+  .back-to-top-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--default-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .back-to-top-link:hover {
+    color: var(--accent-color);
+  }
+  
+  /* ==================== SCROLL TO TOP ==================== */
+  
+  .scroll-top {
+    position: fixed;
+    right: 24px;
+    bottom: 20px;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    color: var(--contrast-color);
+    background: var(--accent-color);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+    text-decoration: none;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+  }
+  
+  .scroll-top i {
+    font-size: 21px;
+    line-height: 1;
+  }
+  
+  .scroll-top:hover {
+    color: var(--contrast-color);
+    transform: translateY(-4px);
+  }
+  
+  .scroll-top.active {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* ==================== RESPONSIVE ==================== */
+  
+  @media (max-width: 576px) {
+    .footer {
+      padding: 35px 0 18px;
+    }
+  
+    .footer-container {
+      width: calc(100% - 32px);
+    }
+  
+    .footer-content {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+    }
+  
+    .footer-brand {
+      max-width: 100%;
+    }
+  
+    .footer-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+  
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+    }
+  
+    .scroll-top {
+      right: 16px;
+      bottom: 16px;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Automatic copyright year
+    const yearElement = document.getElementById('current-year')
+  
+    if (yearElement) {
+      yearElement.textContent = new Date().getFullYear()
+    }
+  
+    // Scroll to top button
+    const scrollTopButton = document.getElementById('scroll-top')
+  
+    if (scrollTopButton) {
+      const toggleScrollTop = function () {
+        scrollTopButton.classList.toggle('active', window.scrollY > 300)
+      }
+  
+      window.addEventListener('scroll', toggleScrollTop, {
+        passive: true
+      })
+  
+      toggleScrollTop()
+    }
+  })
+</script>

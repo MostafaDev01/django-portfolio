@@ -1,0 +1,90 @@
+/*--------------------------------------------------------------
+# About Section
+--------------------------------------------------------------*/
+.about .about-image {
+  position: relative;
+}
+
+.about .about-image img {
+  max-height: 480px;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+}
+
+.about .about-content {
+  padding-left: 2rem;
+}
+
+@media (max-width: 991.98px) {
+  .about .about-content {
+    padding-left: 0;
+    margin-top: 3rem;
+  }
+}
+
+.about .about-content .subtitle {
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.about .about-content h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.about .about-content .lead {
+  font-size: 1.1rem;
+  color: color-mix(in srgb, var(--default-color), transparent 25%);
+}
+
+.about .personal-info {
+  margin-top: 2rem;
+  padding: 2rem;
+  background-color: var(--surface-color);
+  border-radius: 1rem;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
+}
+
+.about .personal-info .info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.about .personal-info .info-item .label {
+  font-size: 0.875rem;
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+}
+
+.about .personal-info .info-item .value {
+  font-weight: 600;
+  color: var(--heading-color);
+}
+
+.about .signature {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.about .signature .signature-image {
+  max-width: 150px;
+}
+
+.about .signature .signature-info h4 {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.about .signature .signature-info p {
+  font-size: 0.875rem;
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  margin: 0;
+}

@@ -1,0 +1,222 @@
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+.hero {
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero .content h2 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 991px) {
+  .hero .content h2 {
+    font-size: 2.5rem;
+  }
+}
+
+.hero .content .lead {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+}
+
+.hero .cta-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 576px) {
+  .hero .cta-buttons {
+    flex-direction: column;
+  }
+}
+
+.hero .cta-buttons .btn {
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.hero .cta-buttons .btn.btn-primary {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+.hero .cta-buttons .btn.btn-primary:hover {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 15%);
+  border-color: color-mix(in srgb, var(--accent-color), transparent 15%);
+  transform: translateY(-2px);
+}
+
+.hero .cta-buttons .btn.btn-outline {
+  border: 2px solid color-mix(in srgb, var(--accent-color), transparent 70%);
+  color: var(--accent-color);
+  background: transparent;
+}
+
+.hero .cta-buttons .btn.btn-outline:hover {
+  background-color: var(--accent-color);
+  color: var(--contrast-color);
+  transform: translateY(-2px);
+}
+
+.hero .hero-stats {
+  display: flex;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 576px) {
+  .hero .hero-stats {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+.hero .hero-stats .stat-item .stat-number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--heading-color);
+  line-height: 1;
+}
+
+.hero .hero-stats .stat-item .stat-label {
+  font-size: 0.9rem;
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+  margin-top: 0.5rem;
+  display: block;
+}
+.hero .hero-image {
+  position: relative;
+  padding: 2rem;
+  max-width: 480px;
+  margin-inline: auto;
+}
+
+.hero .hero-image img {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 85%;
+  height: auto;
+  margin-inline: auto;
+}
+
+.hero .hero-image .shape-1,
+.hero .hero-image .shape-2 {
+  position: absolute;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  z-index: 1;
+}
+
+.hero .hero-image .shape-1 {
+  width: 260px;
+  height: 260px;
+  background-color: color-mix(
+    in srgb,
+    var(--accent-color),
+    transparent 85%
+  );
+  top: -10px;
+  right: 0;
+  animation: morphShape 15s linear infinite;
+}
+
+.hero .hero-image .shape-2 {
+  width: 170px;
+  height: 170px;
+  background-color: color-mix(
+    in srgb,
+    var(--heading-color),
+    transparent 90%
+  );
+  bottom: -10px;
+  left: 0;
+  animation: morphShape 20s linear infinite reverse;
+}
+
+@media (max-width: 991px) {
+  .hero {
+    text-align: center;
+    padding: 60px 0;
+  }
+
+  .hero .cta-buttons {
+    justify-content: center;
+  }
+
+  .hero .hero-stats {
+    justify-content: center;
+  }
+
+  .hero .hero-image {
+    margin: 3rem auto 0;
+    max-width: 400px;
+  }
+
+  .hero .hero-image img {
+    width: 85%;
+  }
+
+  .hero .hero-image .shape-1 {
+    width: 220px;
+    height: 220px;
+  }
+
+  .hero .hero-image .shape-2 {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero .hero-image {
+    max-width: 320px;
+    padding: 1.5rem;
+  }
+
+  .hero .hero-image .shape-1 {
+    width: 170px;
+    height: 170px;
+  }
+
+  .hero .hero-image .shape-2 {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+
+
+@keyframes morphShape {
+  0% {
+    border-radius: 30% 70% 70% 30%/30% 30% 70% 70%;
+  }
+
+  25% {
+    border-radius: 58% 42% 75% 25%/76% 46% 54% 24%;
+  }
+
+  50% {
+    border-radius: 50% 50% 33% 67%/55% 27% 73% 45%;
+  }
+
+  75% {
+    border-radius: 33% 67% 58% 42%/63% 68% 32% 37%;
+  }
+
+  100% {
+    border-radius: 30% 70% 70% 30%/30% 30% 70% 70%;
+  }
+}

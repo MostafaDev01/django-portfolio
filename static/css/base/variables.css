@@ -1,0 +1,49 @@
+/*--------------------------------------------------------------
+# Font & Color Variables
+# Help: https://bootstrapmade.com/color-system/
+--------------------------------------------------------------*/
+/* Fonts */
+:root {
+  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Questrial", sans-serif;
+  --nav-font: "Noto Sans", sans-serif;
+}
+
+/* Global Colors */
+:root { 
+  --background-color: #ffffff;
+  --default-color: #0a0f14;
+  --heading-color: #0f2943;
+  --accent-color: #e87532;
+  --surface-color: #ffffff;
+  --contrast-color: #ffffff;
+}
+
+/* Nav Menu Colors */
+:root {
+  --nav-color: #0a0f14;
+  --nav-hover-color: #e87532;
+  --nav-mobile-background-color: #ffffff;
+  --nav-dropdown-background-color: #ffffff;
+  --nav-dropdown-color: #0a0f14;
+  --nav-dropdown-hover-color: #e87532;
+}
+
+/* Color Presets */
+.light-background {
+  --background-color: #faf9fb;
+  --surface-color: #ffffff;
+}
+
+.dark-background {
+  --background-color: #060606;
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
+  --surface-color: #252525;
+  --contrast-color: #ffffff;
+}
+
+/* Smooth scroll */
+:root {
+  scroll-behavior: smooth;
+}

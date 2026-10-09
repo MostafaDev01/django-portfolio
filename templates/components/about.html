@@ -1,0 +1,88 @@
+{% load static %}
+<!-- About Section -->
+<section id="about" class="about section light-background">
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>About the Consultant</h2>
+    <div class="title-shape">
+      <svg viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 0,10 C 40,0 60,20 100,10 C 140,0 160,20 200,10" fill="none" stroke="currentColor" stroke-width="2"></path>
+      </svg>
+    </div>
+    <p>Odoo functional consulting focused on understanding business requirements, reviewing processes, and shaping practical ERP workflows.</p>
+  </div>
+  <!-- End Section Title -->
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="row align-items-center">
+      <div class="col-lg-6 position-relative" data-aos="fade-right" data-aos-delay="200">
+        <div class="about-image">
+          {% if profile and profile.profile_image %}
+            <img src="{{ profile.profile_image.url }}" alt="Profile Image" class="img-fluid rounded-4" />
+          {% else %}
+            <img src="{% static 'img/profile-placeholder.webp' %}" alt="Profile Image" class="img-fluid rounded-4" />
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
+        <div class="about-content">
+          <span class="subtitle">Odoo Functional Consultant</span>
+
+          <h2>{{ profile.job_title }}</h2>
+
+          <p class="lead mb-4">{{ profile.bio }}</p>
+
+          <p class="mb-4">The focus is on aligning Odoo workflows with business needs and day-to-day operations.</p>
+
+          <div class="personal-info">
+            <div class="row g-4">
+              <div class="col-6">
+                <div class="info-item">
+                  <span class="label">Name</span>
+                  <span class="value">{{ profile.name }}</span>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="info-item">
+                  <span class="label">Phone</span>
+                  <span class="value">{{ profile.phone }}</span>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="info-item">
+                  <span class="label">Age</span>
+                  <span class="value">{{ profile.age }} Years</span>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="info-item">
+                  <span class="label">Email</span>
+                  <span class="value">{{ profile.email }}</span>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="info-item">
+                  <span class="label">Professional Role</span>
+                  <span class="value">{{ profile.job_title }}</span>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="info-item">
+                  <span class="label">Nationality</span>
+                  <span class="value">{{ profile.nationality }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /About Section -->

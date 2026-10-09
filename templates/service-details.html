@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Odoo Functional Consulting{% endblock %}
+{% block body_class %}service-details-page{% endblock %}
+
+{% block content %}
+  <!-- Page Title -->
+  <div class="page-title">
+    <div class="breadcrumbs">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url 'home' %}"><i class="bi bi-house"></i> Home</a></li>
+          <li class="breadcrumb-item"><a href="#">Consulting Services</a></li>
+          <li class="breadcrumb-item active current">Odoo Functional Consulting</li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="title-wrapper">
+      <h1>Odoo Functional Consulting</h1>
+      <p>Support for understanding business requirements, reviewing processes, and aligning Odoo workflows with operational needs.</p>
+    </div>
+  </div><!-- End Page Title -->
+
+  <!-- Service Details Section -->
+  <section id="service-details" class="service-details section">
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+      <div class="row gy-4">
+
+        <div class="col-lg-8">
+          <div class="service-details-slider swiper init-swiper">
+            <script type="application/json" class="swiper-config">
+              {
+                "loop": true,
+                "speed": 600,
+                "autoplay": {
+                  "delay": 5000
+                },
+                "slidesPerView": 1,
+                "pagination": {
+                  "el": ".swiper-pagination",
+                  "type": "bullets",
+                  "clickable": true
+                }
+              }
+            </script>
+            <div class="swiper-wrapper align-items-center">
+              <div class="swiper-slide">
+                <img src="{% static 'img/services/services-1.webp' %}" alt="" class="img-fluid" loading="lazy">
+              </div>
+              <div class="swiper-slide">
+                <img src="{% static 'img/services/services-2.webp' %}" alt="" class="img-fluid" loading="lazy">
+              </div>
+              <div class="swiper-slide">
+                <img src="{% static 'img/services/services-3.webp' %}" alt="" class="img-fluid" loading="lazy">
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+
+          <div class="content mt-5">
+            <h3>Business Processes and Odoo Workflows</h3>
+            <p>
+              Functional consulting starts with understanding business requirements and how teams work. These findings help shape clear ERP processes and practical Odoo workflows.
+            </p>
+            <p>
+              Reviewing existing processes helps identify requirements for workflow configuration and Odoo module use.
+            </p>
+
+            <div class="features mt-4">
+              <div class="row gy-4">
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                  <div class="feature-box d-flex align-items-center">
+                    <i class="bi bi-check"></i>
+                    <h4>Requirements Analysis</h4>
+                  </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                  <div class="feature-box d-flex align-items-center">
+                    <i class="bi bi-check"></i>
+                    <h4>Business Process Review</h4>
+                  </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                  <div class="feature-box d-flex align-items-center">
+                    <i class="bi bi-check"></i>
+                    <h4>Odoo Workflow Configuration</h4>
+                  </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+                  <div class="feature-box d-flex align-items-center">
+                    <i class="bi bi-check"></i>
+                    <h4>ERP Implementation Support</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p class="mt-4">
+              The consulting scope is guided by the requirements and processes identified for each engagement.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="service-info">
+            <h4>Consulting Focus</h4>
+            <div class="info-item">
+              <i class="bi bi-clock"></i>
+              <h5>Engagement Scope</h5>
+              <p>Defined by business requirements</p>
+            </div>
+            <div class="info-item">
+              <i class="bi bi-person-check"></i>
+              <h5>Primary Focus</h5>
+              <p>Business processes and Odoo workflows</p>
+            </div>
+            <div class="info-item">
+              <i class="bi bi-telephone"></i>
+              <h5>Next Step</h5>
+              <p>Discuss your requirements</p>
+            </div>
+          </div>
+
+          <div class="related-services mt-5">
+            <h4>Related Services</h4>
+            <div class="service-item">
+              <i class="bi bi-bar-chart"></i>
+              <h5><a href="#">Requirements Analysis</a></h5>
+              <p>Clarify business needs and translate them into functional ERP requirements.</p>
+            </div>
+            <div class="service-item">
+              <i class="bi bi-briefcase"></i>
+              <h5><a href="#">Workflow Configuration</a></h5>
+              <p>Align Odoo workflows with agreed business processes and operational needs.</p>
+            </div>
+            <div class="service-item">
+              <i class="bi bi-graph-up"></i>
+              <h5><a href="#">ERP Implementation</a></h5>
+              <p>Support implementation planning around requirements, processes, and Odoo modules.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section><!-- /Service Details Section -->
+{% endblock %}
